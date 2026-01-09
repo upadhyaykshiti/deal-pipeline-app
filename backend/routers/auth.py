@@ -11,21 +11,21 @@ class LoginRequest(BaseModel):
     email: str
     password: str
 
-class SignupRequest(BaseModel):
-    email: str
-    password: str
-    role: str
+# class SignupRequest(BaseModel):
+#     email: str
+#     password: str
+#     role: str
 
-@router.post("/signup")
-def signup(data: SignupRequest, db: Session = Depends(get_db)):
-    user = User(
-        email=data.email,
-        password_hash=hash_pw(data.password),
-        role=data.role,
-    )
-    db.add(user)
-    db.commit()
-    return {"ok": True}
+# @router.post("/signup")
+# def signup(data: SignupRequest, db: Session = Depends(get_db)):
+#     user = User(
+#         email=data.email,
+#         password_hash=hash_pw(data.password),
+#         role=data.role,
+#     )
+#     db.add(user)
+#     db.commit()
+#     return {"ok": True}
 
 @router.post("/login")
 def login(data: LoginRequest, db: Session = Depends(get_db)):
