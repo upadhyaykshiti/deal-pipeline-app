@@ -15,7 +15,7 @@ def verify_pw(p: str, h: str) -> bool:
 
 def create_token(user):
     payload = {
-        "sub": str(user.id),      # ✅ MUST BE STRING
+        "sub": str(user.id),      
         "role": user.role,
         "exp": datetime.utcnow() + timedelta(hours=12)
     }
